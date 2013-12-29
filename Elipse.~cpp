@@ -4,7 +4,31 @@
 #pragma hdrstop
 
 #include "Elipse.h"
+#include "Lapiz.h"
 
 //---------------------------------------------------------------------------
+
+Elipse::Elipse(PV2D* cent, double alt, double anc, bool pint){
+        pintable = pint;
+        alto = alt;
+        ancho = anc;
+        centro = cent;
+
+        GLdouble alfa = (2.0*PI) / MAX_LADOS_ELIPSE;
+        GLdouble beta = (PI - alfa) / 2.0;
+        GLdouble lado = 2.0 * cos(beta) * 1;
+
+        Lapiz* lapiz = new Lapiz(new PV2D(0,0),0);
+        lapiz->forward(1,false);
+        circulo[0] = new PV2D(*lapiz->pos);
+        lapiz->turn(PI - beta);
+        for (int i = 1; i < MAX_LADOS_ELIPSE; i++)
+        {
+           lapiz->forward(lado,false);
+           circulo[i] = new PV2D(*lapiz->pos);
+           lapiz->turn(alfa);
+        }
+
+};
 
 #pragma package(smart_init)

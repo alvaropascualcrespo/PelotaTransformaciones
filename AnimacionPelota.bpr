@@ -6,12 +6,13 @@
     <PROJECT value="AnimacionPelota.exe"/>
     <OBJFILES value="AnimacionPelota.obj main.obj Obstaculo.obj Triangulo.obj Circulo.obj 
       Obstaculo.obj Triangulo.obj Circulo.obj Lapiz.obj Pelota.obj PV2D.obj 
-      TFormRadio.obj TFormVelocidad.obj Escena.obj Recubrimiento.obj Elipse.obj"/>
+      TFormRadio.obj TFormVelocidad.obj Escena.obj Recubrimiento.obj Elipse.obj 
+      TFormElipse.obj"/>
     <RESFILES value="AnimacionPelota.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) main.dfm TFormRadio.dfm TFormVelocidad.dfm"/>
+    <RESDEPEN value="$(RESFILES) main.dfm TFormRadio.dfm TFormVelocidad.dfm TFormElipse.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="Vcl50.lib"/>

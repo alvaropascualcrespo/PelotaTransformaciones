@@ -42,6 +42,7 @@ void __fastcall TMainForm::FormCreate(TObject *Sender)
     GLdouble radio = 0;
     Timer->Enabled = false;
     circulos = false;
+    elipses = false;
 
 
     
@@ -144,12 +145,11 @@ void __fastcall TMainForm::FormDestroy(TObject *Sender)
 
 void __fastcall TMainForm::NuevaPelota1Click(TObject *Sender)
 {
-       //TFormRadio* FormRadio;
-       //FormRadio = new TFormRadio(NULL);
-       //FormRadio->ShowModal();
-       //AnsiString rad = FormRadio->EditRadio->Text;
-       //radio = atof(rad.c_str());
-       radio = 1;
+       TFormRadio* FormRadio;
+       FormRadio = new TFormRadio(NULL);
+       FormRadio->ShowModal();
+       AnsiString rad = FormRadio->EditRadio->Text;
+       radio = atof(rad.c_str());
        ShowMessage("Presione un punto para colocar la pelota");
        inicio = true;
        nCirculos = 0;
@@ -281,7 +281,29 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                                 escena->aniadirObstaculo(c1);
                                 circulos = false;
                                 GLScene();
-                        }
+                                }
+
+                                else{
+                                        if(elipses == true){
+                                                GLfloat escalaAncho = ClientWidth / (xRight - xLeft);
+                                                GLfloat escalaAlto = ClientHeight / (yTop - yBot);
+                                                xCentro = (X + xLeft * escalaAncho) / escalaAncho;
+                                                yCentro = (ClientHeight/2 - Y) / escalaAlto;
+                                                TFormElipse* FormElipse;
+                                                FormElipse = new TFormElipse(NULL);
+                                                FormElipse->ShowModal();
+                                                AnsiString al = FormElipse->EditAlto->Text;
+                                                AnsiString an = FormElipse->EditAncho->Text;
+                                                float alt = atof(al.c_str());
+                                                float anc = atof(an.c_str());
+                                                Elipse* el = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true);
+                                                escena->aniadirObstaculo(el);
+                                                Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false);
+                                                escena->aniadirObstaculo(e1);
+                                                elipses = false;
+                                                GLScene();
+                                        }
+                                }
                         }
 
                 }
@@ -318,6 +340,13 @@ void __fastcall TMainForm::Circulo1Click(TObject *Sender)
 {
         circulos = true;
         ShowMessage("Seleccione un punto para que sea el centro del circulo");        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::ElipseClick(TObject *Sender)
+{
+        elipses = true;
+        ShowMessage("Seleccione un punto para que sea el centro de la elipse");
 }
 //---------------------------------------------------------------------------
 

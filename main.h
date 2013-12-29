@@ -16,6 +16,8 @@
 #include "Recubrimiento.h"
 
 #include "TFormVelocidad.h"
+#include "TFormElipse.h"
+#include "Elipse.h"
 #include "Lista.h"
 #include "Obstaculo.h"
 #include "Triangulo.h"
@@ -39,6 +41,7 @@ __published:	// IDE-managed Components
         TMenuItem *Obstaculos1;
         TMenuItem *Triangulo1;
         TMenuItem *Circulo1;
+        TMenuItem *Elipse;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormResize(TObject *Sender);
         void __fastcall FormPaint(TObject *Sender);
@@ -52,6 +55,7 @@ __published:	// IDE-managed Components
         void __fastcall ActivaTimerClick(TObject *Sender);
         void __fastcall Triangulo1Click(TObject *Sender);
         void __fastcall Circulo1Click(TObject *Sender);
+        void __fastcall ElipseClick(TObject *Sender);
 private:
         HDC hdc;
         HGLRC hrc;
@@ -75,6 +79,7 @@ private:
         PV2D *vt3;
         bool circulos;
         int nCirculos;
+        bool elipses;
 
 public:		// User declarations
         __fastcall TMainForm(TComponent* Owner);

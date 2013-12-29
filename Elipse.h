@@ -1,10 +1,13 @@
 //---------------------------------------------------------------------------
-#include "Obstaculo.h"
-#include "Circulo.h"
 
 #ifndef ElipseH
 #define ElipseH
 //---------------------------------------------------------------------------
+#include "Obstaculo.h"
+#include "Circulo.h"
+
+const int MAX_LADOS_ELIPSE = 500;
+
 class Elipse : public Obstaculo{
 
         public:
@@ -12,8 +15,11 @@ class Elipse : public Obstaculo{
                 double ancho;
                 double alto;
                 Circulo* circulo;
-                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn);
-                void draw();
+                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){};
+                void draw(){};
+                bool pintable;
+                Elipse(){};
+                Elipse(PV2D* cent, double alt, double anc, bool pint);
         private:
 
 };

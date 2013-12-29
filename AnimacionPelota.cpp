@@ -18,6 +18,7 @@ USEFORM("TFormVelocidad.cpp", FormVelocidad);
 USEUNIT("Escena.cpp");
 USEUNIT("Recubrimiento.cpp");
 USEUNIT("Elipse.cpp");
+USEFORM("TFormElipse.cpp", FormElipse);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -27,6 +28,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
                  Application->CreateForm(__classid(TMainForm), &MainForm);
                  Application->CreateForm(__classid(TFormRadio), &FormRadio);
                  Application->CreateForm(__classid(TFormVelocidad), &FormVelocidad);
+                 Application->CreateForm(__classid(TFormElipse), &FormElipse);
                  Application->Run();
         }
         catch (Exception &exception)
