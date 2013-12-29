@@ -1,0 +1,17 @@
+//---------------------------------------------------------------------------
+
+#ifndef ObstaculoH
+#define ObstaculoH
+//---------------------------------------------------------------------------
+
+#include "PV2D.h"
+class Obstaculo{
+        public:
+                virtual void draw() = 0;
+                virtual bool interseccion(PV2D* P, PV2D* v, double &thit, PV2D* &normalIn) = 0;
+
+};
+
+
+
+#endif
