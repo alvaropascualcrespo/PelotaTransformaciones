@@ -14,21 +14,21 @@ Elipse::Elipse(PV2D* cent, double alt, double anc, bool pint){
         ancho = anc;
         centro = cent;
 
-        GLdouble alfa = (2.0*PI) / MAX_LADOS_ELIPSE;
-        GLdouble beta = (PI - alfa) / 2.0;
-        GLdouble lado = 2.0 * cos(beta) * 1;
+        circulo = new Circulo(new PV2D(0,0),1,true);
 
-        Lapiz* lapiz = new Lapiz(new PV2D(0,0),0);
-        lapiz->forward(1,false);
-        circulo[0] = new PV2D(*lapiz->pos);
-        lapiz->turn(PI - beta);
-        for (int i = 1; i < MAX_LADOS_ELIPSE; i++)
-        {
-           lapiz->forward(lado,false);
-           circulo[i] = new PV2D(*lapiz->pos);
-           lapiz->turn(alfa);
+
+};
+
+void Elipse::draw(){
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        if (pintable == true){
+               circulo->draw();
         }
+        glTranslated(centro->x,centro->y,0);
+        glScaled(ancho,alto,1);
 
+        glPopMatrix();
 };
 
 #pragma package(smart_init)

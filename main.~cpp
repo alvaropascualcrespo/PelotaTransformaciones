@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "main.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -296,8 +297,8 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                                                 AnsiString an = FormElipse->EditAncho->Text;
                                                 float alt = atof(al.c_str());
                                                 float anc = atof(an.c_str());
-                                                Elipse* el = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true);
-                                                escena->aniadirObstaculo(el);
+                                                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true);
+                                                escena->aniadirObstaculo(e);
                                                 Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false);
                                                 escena->aniadirObstaculo(e1);
                                                 elipses = false;
@@ -343,7 +344,7 @@ void __fastcall TMainForm::Circulo1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TMainForm::ElipseClick(TObject *Sender)
+void __fastcall TMainForm::Elipse1Click(TObject *Sender)
 {
         elipses = true;
         ShowMessage("Seleccione un punto para que sea el centro de la elipse");

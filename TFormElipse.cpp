@@ -15,3 +15,9 @@ __fastcall TFormElipse::TFormElipse(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormElipse::btnAceptarElipseClick(TObject *Sender)
+{
+        ModalResult = mrOk;
+}
+//---------------------------------------------------------------------------
+

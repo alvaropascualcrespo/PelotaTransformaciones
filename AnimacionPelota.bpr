@@ -6,8 +6,8 @@
     <PROJECT value="AnimacionPelota.exe"/>
     <OBJFILES value="AnimacionPelota.obj main.obj Obstaculo.obj Triangulo.obj Circulo.obj 
       Obstaculo.obj Triangulo.obj Circulo.obj Lapiz.obj Pelota.obj PV2D.obj 
-      TFormRadio.obj TFormVelocidad.obj Escena.obj Recubrimiento.obj Elipse.obj 
-      TFormElipse.obj"/>
+      TFormRadio.obj TFormVelocidad.obj Escena.obj Recubrimiento.obj 
+      TFormElipse.obj Elipse.obj"/>
     <RESFILES value="AnimacionPelota.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -31,12 +31,13 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="_RTLDLL;NO_STRICT;USEPACKAGES"/>
     <MAINSOURCE value="AnimacionPelota.cpp"/>
-    <INCLUDEPATH value="&quot;C:\Program Files\Borland\CBuilder5\Bin&quot;;&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder5\Projects&quot;;\\10.10.69.107\GitHub\AnimacionPelota;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="&quot;C:\Program Files\Borland\CBuilder5\Bin&quot;;&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder5\Projects&quot;;\\10.10.69.107\GitHub\AnimacionPelota;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="\\10.10.69.107\GitHub\PelotaTransformaciones;&quot;C:\Program Files\Borland\CBuilder5\Bin&quot;;&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder5\Projects&quot;;\\10.10.69.107\GitHub\AnimacionPelota;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="\\10.10.69.107\GitHub\PelotaTransformaciones;&quot;C:\Program Files\Borland\CBuilder5\Bin&quot;;&quot;C:\Program Files\Borland\CBuilder5\Projects&quot;;&quot;C:\Program Files (x86)\Borland\CBuilder5\Projects&quot;;\\10.10.69.107\GitHub\AnimacionPelota;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder5\Bin&quot; 
+    <IDLCFLAGS value="-I\\10.10.69.107\GitHub\PelotaTransformaciones 
+      -I&quot;C:\Program Files\Borland\CBuilder5\Bin&quot; 
       -I&quot;C:\Program Files\Borland\CBuilder5\Projects&quot; 
       -I&quot;C:\Program Files (x86)\Borland\CBuilder5\Projects&quot; 
       -I\\10.10.69.107\GitHub\AnimacionPelota -I$(BCB)\include 

@@ -17,8 +17,8 @@ USEFORM("TFormRadio.cpp", FormRadio);
 USEFORM("TFormVelocidad.cpp", FormVelocidad);
 USEUNIT("Escena.cpp");
 USEUNIT("Recubrimiento.cpp");
-USEUNIT("Elipse.cpp");
 USEFORM("TFormElipse.cpp", FormElipse);
+USEUNIT("Elipse.cpp");
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

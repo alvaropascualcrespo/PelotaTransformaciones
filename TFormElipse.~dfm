@@ -60,6 +60,7 @@ object FormElipse: TFormElipse
     Height = 25
     Caption = 'Aceptar'
     TabOrder = 1
+    OnClick = btnAceptarElipseClick
   end
   object EditAncho: TEdit
     Left = 80

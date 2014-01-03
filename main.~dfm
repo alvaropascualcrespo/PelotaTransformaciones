@@ -47,10 +47,10 @@ object MainForm: TMainForm
         Caption = 'Circulo'
         OnClick = Circulo1Click
       end
-      object Elipse: TMenuItem
+      object Elipse1: TMenuItem
         Caption = 'Elipse'
         Hint = 'Elipse'
-        OnClick = ElipseClick
+        OnClick = Elipse1Click
       end
     end
   end

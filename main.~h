@@ -41,7 +41,7 @@ __published:	// IDE-managed Components
         TMenuItem *Obstaculos1;
         TMenuItem *Triangulo1;
         TMenuItem *Circulo1;
-        TMenuItem *Elipse;
+        TMenuItem *Elipse1;
         void __fastcall FormCreate(TObject *Sender);
         void __fastcall FormResize(TObject *Sender);
         void __fastcall FormPaint(TObject *Sender);
@@ -55,7 +55,7 @@ __published:	// IDE-managed Components
         void __fastcall ActivaTimerClick(TObject *Sender);
         void __fastcall Triangulo1Click(TObject *Sender);
         void __fastcall Circulo1Click(TObject *Sender);
-        void __fastcall ElipseClick(TObject *Sender);
+        void __fastcall Elipse1Click(TObject *Sender);
 private:
         HDC hdc;
         HGLRC hrc;
@@ -80,6 +80,7 @@ private:
         bool circulos;
         int nCirculos;
         bool elipses;
+        Elipse *aux;
 
 public:		// User declarations
         __fastcall TMainForm(TComponent* Owner);

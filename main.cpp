@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "main.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -343,7 +344,7 @@ void __fastcall TMainForm::Circulo1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TMainForm::ElipseClick(TObject *Sender)
+void __fastcall TMainForm::Elipse1Click(TObject *Sender)
 {
         elipses = true;
         ShowMessage("Seleccione un punto para que sea el centro de la elipse");

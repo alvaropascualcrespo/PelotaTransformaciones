@@ -14,3 +14,14 @@ __fastcall TFormElipse::TFormElipse(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TFormElipse::btnAceptarElipseClick(TObject *Sender)
+{
+   /*     AnsiString h = EditAlto->Text;
+        int alto = atoi(h.c_str());
+        AnsiString w = EditAncho->Text;
+        int ancho = atoi(w.c_str());   */
+        ModalResult = mrOk;
+}
+//---------------------------------------------------------------------------
+

@@ -12,11 +12,11 @@ class Elipse : public Obstaculo{
 
         public:
                 PV2D* centro;
-                double ancho;
-                double alto;
+                GLdouble ancho;
+                GLdouble alto;
                 Circulo* circulo;
                 bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){};
-                void draw(){};
+                void draw();
                 bool pintable;
                 Elipse(){};
                 Elipse(PV2D* cent, double alt, double anc, bool pint);
