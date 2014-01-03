@@ -14,7 +14,7 @@ Elipse::Elipse(PV2D* cent, double alt, double anc, bool pint){
         ancho = anc;
         centro = cent;
 
-        circulo = new Circulo(new PV2D(0,0),1,true);
+        circulo = new Circulo(new PV2D(0,0),1,pint);
 
 
 };
@@ -27,8 +27,7 @@ void Elipse::draw(){
         glScaled(ancho,alto,1);
         if (pintable == true){
                circulo->draw();
-        }
-
+        }    
         glPopMatrix();
 };
 

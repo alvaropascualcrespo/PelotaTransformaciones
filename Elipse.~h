@@ -15,7 +15,7 @@ class Elipse : public Obstaculo{
                 GLdouble ancho;
                 GLdouble alto;
                 Circulo* circulo;
-                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){};
+                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){return circulo->interseccion(P,direccion,thit,normalIn);};
                 void draw();
                 bool pintable;
                 Elipse(){};
