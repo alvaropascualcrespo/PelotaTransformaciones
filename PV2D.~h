@@ -24,7 +24,7 @@ class PV2D{
         GLdouble dot(PV2D* v);
         void normalizar(){      GLdouble modulo = 1 / sqrt(pow(x,2) + pow(y,2));
                                 x *= modulo;
-                                y *= modulo;
+                                y *= modulo;sss
                         };
 
 };

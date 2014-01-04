@@ -15,11 +15,13 @@ class Elipse : public Obstaculo{
                 GLdouble ancho;
                 GLdouble alto;
                 Circulo* circulo;
-                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){return circulo->interseccion(P,direccion,thit,normalIn);};
+                GLfloat matrix[3][3];
+                bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn);
                 void draw();
                 bool pintable;
                 Elipse(){};
                 Elipse(PV2D* cent, double alt, double anc, bool pint);
+                double modulo(PV2D * v);
         private:
 
 };
