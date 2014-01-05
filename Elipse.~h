@@ -18,9 +18,10 @@ class Elipse : public Obstaculo{
                 GLfloat matrix[3][3];
                 bool interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn);
                 void draw();
+                GLdouble velocidad;
                 bool pintable;
                 Elipse(){};
-                Elipse(PV2D* cent, double alt, double anc, bool pint);
+                Elipse(PV2D* cent, double alt, double anc, bool pint, GLdouble v);
                 double modulo(PV2D * v);
         private:
 

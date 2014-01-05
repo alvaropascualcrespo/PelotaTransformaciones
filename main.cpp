@@ -297,10 +297,10 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                                                 AnsiString an = FormElipse->EditAncho->Text;
                                                 float alt = atof(al.c_str());
                                                 float anc = atof(an.c_str());
-                                                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true);
+                                                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true,escena->pelota->velocidad);
                                                 escena->aniadirObstaculo(e);
-                                                Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false);
-                                                escena->aniadirObstaculo(e1);
+                                                //Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false);
+                                                //escena->aniadirObstaculo(e1);
                                                 elipses = false;
                                                 GLScene();
                                         }

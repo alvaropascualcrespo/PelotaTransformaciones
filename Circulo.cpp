@@ -50,14 +50,14 @@ bool Circulo::interseccion(PV2D* P, PV2D* vGrande, double &thit, PV2D* &normalIn
         double c = ((P->restaVertices(centro))->dot(P->restaVertices(centro))) - radio2;
 
         double discriminante = pow(b,2) - 4*a*c;
-        if (discriminante < 0) return false;
-        if (discriminante > -1 && discriminante < 1){
+        if (discriminante < 0.01) return false;
+        if (discriminante > -0.01 && discriminante < 0.01){
                 thit = -b / 2*a;
                 PV2D* puntoCorte = new PV2D(P->x + thit * v->x, P->y + thit * v->y);
                 normalIn = new PV2D((puntoCorte->x - centro->x), (puntoCorte->y - centro->y));
                 return true;
         }
-        if (discriminante > 0){
+        if (discriminante > 0.01){
                 double t1 = (-b - sqrt(discriminante)) / 2*a;
                 double t2 = (-b + sqrt(discriminante)) / 2*a;
                 thit = min(t1,t2);

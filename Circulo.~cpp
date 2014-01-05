@@ -41,23 +41,8 @@ void Circulo::draw(){
                         }
                 glEnd();
         }
-        /*//Dibujamos normales
-        glColor3f(1.0,0.0,1.0);
-        for (int i = 0; i<MAX_LADOS_CIRCULO; i++){
-                GLdouble mediox = (contorno[i%MAX_LADOS_CIRCULO]->x + contorno[(i+1)%MAX_LADOS_CIRCULO]->x)/2;
-                GLdouble medioy = (contorno[i%MAX_LADOS_CIRCULO]->y + contorno[(i+1)%MAX_LADOS_CIRCULO]->y)/2;
-
-                GLdouble finx = mediox + normal[i%MAX_LADOS_CIRCULO]->x;
-                GLdouble finy = medioy + normal[i%MAX_LADOS_CIRCULO]->y;
-
-                glBegin(GL_LINES);
-                        glVertex2d(mediox,medioy);
-                        glVertex2d(finx,finy);
-                glEnd();
-        }
-        glColor3f(0.0,0.0,0.0);*/
 };
-/*
+
 bool Circulo::interseccion(PV2D* P, PV2D* vGrande, double &thit, PV2D* &normalIn){
         PV2D* v = new PV2D(vGrande->x / modulo(vGrande), vGrande->y / modulo(vGrande));
         double a = v->dot(v);
@@ -81,58 +66,7 @@ bool Circulo::interseccion(PV2D* P, PV2D* vGrande, double &thit, PV2D* &normalIn
                 return true;
         }
         return false;
-}; */
-
-bool Circulo::cyrusBeck(PV2D* P, PV2D* direccion, double &tIn, PV2D* &normalIn){
-     GLdouble thit = 0;
-     tIn = 0;
-     GLdouble tOut = 1;
-     int normalIntAux = -1;
-     int i = 0;
-     bool encontrado = false;
-     PV2D* dir = new PV2D(direccion->x / modulo(direccion)*80, direccion->y / modulo(direccion)*80);
-
-     while (!encontrado && i < MAX_LADOS_CIRCULO){
-
-        //int j = (i + 1) % MAX_RECUBRIMIENTO;
-
-        GLdouble numerador = (contorno[i]->restaVertices(P))->dot(normal[i]);
-        GLdouble denominador =  dir->dot(normal[i]);
-
-        if (denominador == 0 && ((P->restaVertices(contorno[i]) == 0) || (P->restaVertices(contorno[i]) > 0))) encontrado = true;
-        else if (!(denominador == 0 && (P->restaVertices(contorno[i]) < 0))){
-                thit = numerador / denominador;
-                if (dir->dot(normal[i]) < 0){
-                        if (thit > tIn){
-                                tIn = thit;
-                                normalIntAux = i;
-                        }
-                }else if (dir->dot(normal[i]) > 0) tOut = min(tOut,thit);
-                encontrado = tIn > tOut;
-        }
-        i++;
-     }
-     //Prueba
-     if(!encontrado && normalIntAux != -1){
-        normalIn = new PV2D(*normal[normalIntAux]);
-     }
-     else return false;
-
-     thit = tIn;
-     return !encontrado;
-
-}
-
-bool Circulo::interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalIn){
-        for (int i=0; i<MAX_LADOS_CIRCULO; i++){
-                PV2D *aux = contorno[(i+1)%MAX_LADOS_CIRCULO]->restaVertices(contorno[i]);
-                normal[i] = new PV2D (aux->y / modulo(aux), - aux->x / modulo(aux));
-        }
-        GLdouble tIn = 0;
-        bool devolver = cyrusBeck(P, direccion, tIn, normalIn);
-        thit = tIn;
-        return devolver;
-}
+};
 
 double Circulo::modulo(PV2D * v){
         return sqrt(pow(v->x,2) + pow(v->y,2));
