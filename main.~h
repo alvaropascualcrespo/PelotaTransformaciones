@@ -80,7 +80,6 @@ private:
         bool circulos;
         int nCirculos;
         bool elipses;
-        Elipse *aux;
 
 public:		// User declarations
         __fastcall TMainForm(TComponent* Owner);

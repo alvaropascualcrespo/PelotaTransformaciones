@@ -146,11 +146,8 @@ void __fastcall TMainForm::FormDestroy(TObject *Sender)
 
 void __fastcall TMainForm::NuevaPelota1Click(TObject *Sender)
 {
-       TFormRadio* FormRadio;
-       FormRadio = new TFormRadio(NULL);
-       FormRadio->ShowModal();
-       AnsiString rad = FormRadio->EditRadio->Text;
-       radio = atof(rad.c_str());
+
+       radio = 20;
        ShowMessage("Presione un punto para colocar la pelota");
        inicio = true;
        nCirculos = 0;
@@ -219,7 +216,11 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                 triangulo = new Triangulo(v1,v2,v3);
                 escena->aniadirObstaculo(triangulo);
                 escena->aniadirObstaculo(r);
-
+                
+                GLdouble yCentro = -85.5106880612889;
+                GLdouble xCentro = -228.028524048727;
+                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),200,40,true,escena->pelota->velocidad);
+                escena->aniadirObstaculo(e);
 
 
           } else{
@@ -232,14 +233,10 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                         yCentro = (ClientHeight/2 - Y) / escalaAlto;
                         escena->pelota->poner_vector(new PV2D(xCentro - escena->pelota->centro->x, yCentro - escena->pelota->centro->y));
                         GLScene();
-                        TFormVelocidad* FormVelocidad;
-                        FormVelocidad = new TFormVelocidad(NULL);
-                        FormVelocidad->ShowModal();
-                        AnsiString vel = FormVelocidad->EditVelocidad->Text;
-                        escena->pelota->ponerVelocidad(atof(vel.c_str()));
+                        escena->pelota->ponerVelocidad(20);
                         for(int k=0; k<escena->nObstaculos && k < 8; k++){
                                 if ((k%2) == 1){
-                                        ((Recubrimiento*)(escena->obstaculos[k]))->velocidad = atof(vel.c_str());
+                                        ((Recubrimiento*)(escena->obstaculos[k]))->velocidad = 20;
                                 }
                         }
                         GLScene();
@@ -297,10 +294,10 @@ void __fastcall TMainForm::FormMouseDown(TObject *Sender,
                                                 AnsiString an = FormElipse->EditAncho->Text;
                                                 float alt = atof(al.c_str());
                                                 float anc = atof(an.c_str());
-                                                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true);
+                                                Elipse* e = new Elipse(new PV2D(xCentro,yCentro),alt,anc,true,escena->pelota->velocidad);
                                                 escena->aniadirObstaculo(e);
-                                                //Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false);
-                                                //escena->aniadirObstaculo(e1);
+                                               // Elipse* e1 = new Elipse(new PV2D(xCentro,yCentro),alt+escena->pelota->radio,anc+escena->pelota->radio,false,escena->pelota->velocidad);
+                                               // escena->aniadirObstaculo(e1);
                                                 elipses = false;
                                                 GLScene();
                                         }

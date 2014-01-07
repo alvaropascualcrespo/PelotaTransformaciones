@@ -18,8 +18,9 @@ void Escena::step()
         GLdouble thitL = 0;
         PV2D *nL;
         for (int i = 0; i < nObstaculos; i++){
-
-                exitoL = obstaculos[i]->interseccion(pelota->centro, pelota->vector,thitL,nL);
+                PV2D *vector_nomalizado = new PV2D (*pelota->vector);
+                vector_nomalizado->normalizar();
+                exitoL = obstaculos[i]->interseccion(pelota->centro, vector_nomalizado,thitL,nL);
                 if ((exitoL && thitL > 0) && thitL <= (pelota->velocidad)) exitoL = true;
                 else exitoL = false;
 

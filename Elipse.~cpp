@@ -55,12 +55,14 @@ bool Elipse::interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalI
         GLfloat yaux = matrix[1][1] * (P->y + matrix[1][2]);
         PV2D* centroBola = new PV2D(xaux,yaux);
         // AQUI FALLO *Aplicar M sobre la velocidad Lineal
-        PV2D* unitario = new PV2D(direccion->x/modulo(direccion), direccion->y/modulo(direccion));
-        GLfloat xaux1 = matrix[0][0] * unitario->x;
-        GLfloat yaux1 = matrix[1][1] * unitario->y;
+        //PV2D* unitario = new PV2D(direccion->x/modulo(direccion), direccion->y/modulo(direccion));
+        GLfloat xaux1 = matrix[0][0] * (direccion->x );
+        GLfloat yaux1 = matrix[1][1] * (direccion->y );
         PV2D* dir = new PV2D(xaux1,yaux1);
         // choque
+
         choque = circulo->interseccion(centroBola,dir,thit,normalIn);
+        
         delete centroBola;
         delete dir;
         //Calculo de la normal
@@ -68,12 +70,13 @@ bool Elipse::interseccion(PV2D* P, PV2D* direccion, double &thit, PV2D* &normalI
         matrix[2][1] = - centro->y;
         matrix[0][2] = 0;
         matrix[1][2] = 0;
+
         GLfloat xaux2 = matrix[0][0] * normalIn->x;
         GLfloat yaux2 = matrix[1][1] * normalIn->y;
         normalIn->x = xaux2;
-        normalIn->y = yaux2;
+        normalIn->y = yaux2; 
         thit = thit * velocidad;
-        //if (thit < velocidad && thit > 0 && choque) ShowMessage("Ahora");
+        if (thit < velocidad && thit >= 0 && choque) ShowMessage("Ahora");
         return choque;
 
  };
